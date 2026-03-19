@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Attendance Management System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="bg-orb orb-one"></div>
+    <div class="bg-orb orb-two"></div>
+    <div class="bg-grid"></div>
+
+    <header class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow">Smart Classroom Tracker</span>
+        <h1>📊 Attendance Manager</h1>
+        <p>
+          Manage students, mark attendance by subject, and review detailed
+          history with a clearer and more prominent interface.
+        </p>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-chip">Student Tracking</div>
+        <div class="stat-chip">Subject History</div>
+        <div class="stat-chip">Daily Summary</div>
+      </div>
+    </header>
+
+    <div class="container">
+      <section class="panel">
+        <div class="section-heading">
+          <h2>Student Control</h2>
+          <p>Add students, choose a subject, and find records quickly.</p>
+        </div>
+
+        <div class="form">
+          <input type="text" id="name" placeholder="Student Name" />
+          <input type="text" id="roll" placeholder="Roll Number" />
+          <button onclick="addStudent()">Add Student</button>
+        </div>
+
+        <select id="subject" class="search"></select>
+
+        <input
+          type="text"
+          id="search"
+          class="search"
+          placeholder="Search student..."
+          onkeyup="searchStudent()"
+        />
+
+        <div id="studentList" class="grid"></div>
+
+        <button onclick="resetHistory()" class="delete reset-btn">
+          🧹 Reset Attendance
+        </button>
+      </section>
+
+      <section class="panel">
+        <div class="section-heading">
+          <h2>📅 Attendance History</h2>
+          <p>Filter records by student and subject for faster review.</p>
+        </div>
+
+        <div class="history-filters">
+          <select id="historyStudentFilter" class="filter-select"></select>
+          <select id="historySubjectFilter" class="filter-select"></select>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Roll</th>
+                <th>Subject</th>
+                <th>Status</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody id="history"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="section-heading">
+          <h2>📚 Student Subject History</h2>
+          <p>
+            See each student's performance and latest status in every subject.
+          </p>
+        </div>
+        <div id="studentSubjectHistory" class="student-history-grid"></div>
+      </section>
+
+      <section class="panel">
+        <div class="section-heading">
+          <h2>📊 Today's Summary</h2>
+          <p>Check daily attendance coverage across all students.</p>
+        </div>
+        <div id="summary" class="summary-grid"></div>
+      </section>
+    </div>
+
+    <!-- Alerts -->
+    <div id="alertContainer" class="alert-container"></div>
+
+    <script src="db.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
