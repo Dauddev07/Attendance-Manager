@@ -48,6 +48,9 @@ It features a modern dashboard-style interface, subject-wise attendance marking,
 5. Mark the student as present or absent.
 6. Review the filtered history table, detailed student-subject history, and today's summary below.
 
+## Live At:
+https://dauddev07.github.io/Attendance-Manager/
+
 ## How It Works
 
 - Student data and attendance records are saved in `localStorage`
